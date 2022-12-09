@@ -11,18 +11,13 @@ namespace SAXtest
         [TestMethod]
         public void TestMethod1()
         {
-            // Search by artist and genre.
-            //Search criteria = new Search("", "", "", "", null);
-            
-            // Song (should be first in the found list).
-            
-            string expectedAuthorName = "Шкільняк С. С.";
-            string expectedTitle = "Комп'ютерна лінгвістика для всіх";
-            string expectedFaculty = "ФКНК";
+            string expectedAuthorName = "РЁРєС–Р»СЊРЅСЏРє РЎ. РЎ.";
+            string expectedTitle = "РљРѕРјРї'СЋС‚РµСЂРЅР° Р»С–РЅРіРІС–СЃС‚РёРєР° РґР»СЏ РІСЃС–С…";
+            string expectedFaculty = "Р¤РљРќРљ";
             string expectedDate = "1991";
-            string expectedDepartment = "Кафедра математичної інформатики";
-            string expectedVolume = "205 с.";
-            string expectedType = "Науково-популярна література";
+            string expectedDepartment = "РљР°С„РµРґСЂР° РјР°С‚РµРјР°С‚РёС‡РЅРѕС— С–РЅС„РѕСЂРјР°С‚РёРєРё";
+            string expectedVolume = "205 СЃ.";
+            string expectedType = "РќР°СѓРєРѕРІРѕ-РїРѕРїСѓР»СЏСЂРЅР° Р»С–С‚РµСЂР°С‚СѓСЂР°";
            
 
         }
