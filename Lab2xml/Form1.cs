@@ -7,7 +7,7 @@ namespace Lab2xml
     public partial class Lab2 : Form
     {
         private string myAuthorName = null, myFaculty = null, myDate = null, myDepartment = null, myVolume = null, myType = null;
-        private string path = "C:\\Users\\Олександр\\Desktop\\Labs\\base1.xml";
+        private string path = "base1.xml";
         public Lab2()
         {
             InitializeComponent();
@@ -118,7 +118,7 @@ namespace Lab2xml
         {
             if (
             MessageBox.Show(
-                "Бажаєте вийти з програми?", "Вихід",
+                "Р‘Р°Р¶Р°С”С‚Рµ РІРёР№С‚Рё Р· РїСЂРѕРіСЂР°РјРё?", "Р’РёС…С–Рґ",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.None,
                 MessageBoxDefaultButton.Button1) == DialogResult.No)
@@ -127,7 +127,7 @@ namespace Lab2xml
             }
         }
 
-        void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
+        void OpenFile()
         {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -140,9 +140,14 @@ namespace Lab2xml
             }
             catch
             {
-                MessageBox.Show("Обрано файл неправильного формату", "Помилка типу", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("РћР±СЂР°РЅРѕ С„Р°Р№Р» РЅРµРїСЂР°РІРёР»СЊРЅРѕРіРѕ С„РѕСЂРјР°С‚Сѓ", "РџРѕРјРёР»РєР° С‚РёРїСѓ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 path = prevpath;
             }
+        }
+
+        void РІС–РґРєСЂРёС‚РёToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFile();
         }
 
         private void Lab2_Load(object sender, EventArgs e)
@@ -156,7 +161,7 @@ namespace Lab2xml
             try
             {
                 String line;
-                StreamReader streamReader = new("C:\\Users\\Олександр\\Desktop\\Labs\\help.txt");
+                StreamReader streamReader = new("help.txt");
                 line = streamReader.ReadLine();
                 while (line != null)
                 {
@@ -173,7 +178,7 @@ namespace Lab2xml
             return helptext;
         }
 
-        private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void РґРѕРїРѕРјРѕРіР°ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(helpInfo());
         }
@@ -181,11 +186,11 @@ namespace Lab2xml
         private void ToHtml()
         {
             XslCompiledTransform xsl = new();
-            xsl.Load("\"C:\\Users\\Олександр\\Desktop\\Labs\\transform.xsl");
+            xsl.Load("transform.xsl");
             string input = path;
             string htmlres = "TextMaterials.html";
             xsl.Transform(input, htmlres);
-            MessageBox.Show("Трансформація виконана!");
+            MessageBox.Show("РўСЂР°РЅСЃС„РѕСЂРјР°С†С–СЏ РІРёРєРѕРЅР°РЅР°!");
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
@@ -199,32 +204,32 @@ namespace Lab2xml
                 var temp = sender as CheckBox;
                 if (temp != null) switch (temp.Text)
                 {
-                    case "Ім'я автора":
+                    case "Р†Рј'СЏ Р°РІС‚РѕСЂР°":
                         authorNameBox.SelectedItem = null;
                         if (temp.CheckState == CheckState.Checked) authorNameBox.Enabled = true;
                         else { authorNameBox.Enabled = false; myAuthorName = null; }
                         break;
-                    case "Факультет":
+                    case "Р¤Р°РєСѓР»СЊС‚РµС‚":
                         facultyBox.SelectedItem = null;
                         if (temp.CheckState == CheckState.Checked) facultyBox.Enabled = true;
                         else { facultyBox.Enabled = false; myFaculty = null; }
                         break;
-                    case "Дата":
+                    case "Р”Р°С‚Р°":
                         dateBox.SelectedItem = null;
                         if (temp.CheckState == CheckState.Checked) dateBox.Enabled = true;
                         else { dateBox.Enabled = false; myDate = null; }
                         break;
-                    case "Кафедра":
+                    case "РљР°С„РµРґСЂР°":
                         departmentBox.SelectedItem = null;
                         if (temp.CheckState == CheckState.Checked) departmentBox.Enabled = true;
                         else { departmentBox.Enabled = false; myDepartment = null; }
                         break;
-                    case "Обсяг":
+                    case "РћР±СЃСЏРі":
                         volumeBox.SelectedItem = null;
                         if (temp.CheckState == CheckState.Checked) volumeBox.Enabled = true;
                         else { volumeBox.Enabled = false; myVolume = null; }
                         break;
-                    case "Вид роботи":
+                    case "Р’РёРґ СЂРѕР±РѕС‚Рё":
                         typeBox.SelectedItem = null;
                         if (temp.CheckState == CheckState.Checked) typeBox.Enabled = true;
                         else { typeBox.Enabled = false; myType = null; }
@@ -268,13 +273,13 @@ namespace Lab2xml
             richTextBox1.Clear();
             foreach (Search n in res)
             {
-                richTextBox1.AppendText("Назва: " + n.title + "\n");
-                richTextBox1.AppendText("Ім'я автора: " + n.authorName + "\n");
-                richTextBox1.AppendText("Факультет: " + n.faculty + "\n");
-                richTextBox1.AppendText("Кафедра: " + n.department + "\n");
-                richTextBox1.AppendText("Вид роботи: " + n.type + "\n");
-                richTextBox1.AppendText("Обсяг: " + n.volume + "\n");
-                richTextBox1.AppendText("Дата: " + n.date + "\n");
+                richTextBox1.AppendText("РќР°Р·РІР°: " + n.title + "\n");
+                richTextBox1.AppendText("Р†Рј'СЏ Р°РІС‚РѕСЂР°: " + n.authorName + "\n");
+                richTextBox1.AppendText("Р¤Р°РєСѓР»СЊС‚РµС‚: " + n.faculty + "\n");
+                richTextBox1.AppendText("РљР°С„РµРґСЂР°: " + n.department + "\n");
+                richTextBox1.AppendText("Р’РёРґ СЂРѕР±РѕС‚Рё: " + n.type + "\n");
+                richTextBox1.AppendText("РћР±СЃСЏРі: " + n.volume + "\n");
+                richTextBox1.AppendText("Р”Р°С‚Р°: " + n.date + "\n");
                 richTextBox1.AppendText("\n");
             }
         }
