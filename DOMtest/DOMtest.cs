@@ -12,20 +12,20 @@ namespace DOMtest
         public void TestMethod1()
         {
             Search mySearch = new Search();
-            mySearch.faculty = "ФКНК";
-            mySearch.type = "Наукова стаття";
+            mySearch.faculty = "Р¤РљРќРљ";
+            mySearch.type = "РќР°СѓРєРѕРІР° СЃС‚Р°С‚С‚СЏ";
             mySearch.date = "2003";
 
-            string expectedTitle = "Обчислюваність трансцендентних чисел генераторами з гніздовою стековою пам'яттю";
-            string expectedAuthorName = "Карнаух Т.О.";
-            string expectedFaculty = "ФКНК";
-            string expectedDepartment = "Кафедра теоретичної кібернетики";
+            string expectedTitle = "РћР±С‡РёСЃР»СЋРІР°РЅС–СЃС‚СЊ С‚СЂР°РЅСЃС†РµРЅРґРµРЅС‚РЅРёС… С‡РёСЃРµР» РіРµРЅРµСЂР°С‚РѕСЂР°РјРё Р· РіРЅС–Р·РґРѕРІРѕСЋ СЃС‚РµРєРѕРІРѕСЋ РїР°Рј'СЏС‚С‚СЋ";
+            string expectedAuthorName = "РљР°СЂРЅР°СѓС… Рў.Рћ.";
+            string expectedFaculty = "Р¤РљРќРљ";
+            string expectedDepartment = "РљР°С„РµРґСЂР° С‚РµРѕСЂРµС‚РёС‡РЅРѕС— РєС–Р±РµСЂРЅРµС‚РёРєРё";
             string expectedDate = "2003";
-            string expectedVolume = "5 с.";
-            string expectedType = "Наукова стаття";
+            string expectedVolume = "5 СЃ.";
+            string expectedType = "РќР°СѓРєРѕРІР° СЃС‚Р°С‚С‚СЏ";
 
             IParse search = new DOM();
-            List<Search> found = search.AnalyzeFile(mySearch, "C:\\Users\\Олександр\\Desktop\\Labs\\base1.xml");
+            List<Search> found = search.AnalyzeFile(mySearch, "C:\\Users\\РћР»РµРєСЃР°РЅРґСЂ\\Desktop\\Labs\\base1.xml");
 
             Assert.AreEqual(expectedTitle, found[0].title);
             Assert.AreEqual(expectedAuthorName, found[0].authorName);
